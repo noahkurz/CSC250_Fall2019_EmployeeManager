@@ -13,8 +13,7 @@ public class EmployeeListActivity extends AppCompatActivity
     private ListView employeeLV;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_list);
 
@@ -23,20 +22,27 @@ public class EmployeeListActivity extends AppCompatActivity
 
 
         //created a collection of 1000 unique strings
-        String[] theStrings = new String[1000];
-        for(int i = 0; i < theStrings.length; i++)
-        {
-            theStrings[i] = "String " + i;
-        }
+        // String[] theStrings = new String[1000];
+        // for(int i = 0; i < theStrings.length; i++)
+        // {
+        //     theStrings[i] = "String " + i;
+        // }
 
         ArrayList<String> theString2 = new ArrayList<String>();
-        for(int i = 0; i < 10000; i++)
+        for (int i = 0; i < Core.theEmployees.size(); i++)
         {
-            theString2.add("ArrayList String " + i);
+            theString2.add(Core.theEmployees.get(i).toString());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theStrings);
+        // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theStrings);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theString2);
         this.employeeLV.setAdapter(adapter2);
-    }
-}
+    }}
+
+  //  @Override
+   // protected void onResume()
+  //  {
+  //      super.onResume();
+  //      employeeLV.invalidateViews();
+ //   }
+//}
